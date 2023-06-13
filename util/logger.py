@@ -54,6 +54,7 @@ class TensorboardLogger:
         tag = l1_tag + '/' + l2_tag
         text = '{:s} - It {:6d} [{:5s}] [{:13}]: {:s}'.format(self.short_id, step, l1_tag.upper(), l2_tag, fix_width_trunc(val))
         print(text)
+        print("Result - {}\n".format(text))
         if f is not None:
             f.write(text + '\n')
             f.flush()

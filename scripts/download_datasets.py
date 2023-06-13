@@ -31,57 +31,57 @@ if reply != 'y':
     exit()
 
 
-"""
-Static image data
-"""
-os.makedirs('../static', exist_ok=True)
-print('Downloading static datasets...')
-gdown.download('https://drive.google.com/uc?id=1wUJq3HcLdN-z1t4CsUhjeZ9BVDb9YKLd', output='../static/static_data.zip', quiet=False)
-print('Extracting static datasets...')
-with zipfile.ZipFile('../static/static_data.zip', 'r') as zip_file:
-    zip_file.extractall('../static/')
-print('Cleaning up static datasets...')
-os.remove('../static/static_data.zip')
-
-
 # """
-# DAVIS dataset
+# Static image data
 # """
-# # Google drive mirror: https://drive.google.com/drive/folders/1hEczGHw7qcMScbCJukZsoOW4Q9byx16A?usp=sharing
-# os.makedirs('../DAVIS/2017', exist_ok=True)
+# os.makedirs('../static', exist_ok=True)
+# print('Downloading static datasets...')
+# gdown.download('https://drive.google.com/uc?id=1wUJq3HcLdN-z1t4CsUhjeZ9BVDb9YKLd', output='../static/static_data.zip', quiet=False)
+# print('Extracting static datasets...')
+# with zipfile.ZipFile('../static/static_data.zip', 'r') as zip_file:
+#     zip_file.extractall('../static/')
+# print('Cleaning up static datasets...')
+# os.remove('../static/static_data.zip')
 
-# print('Downloading DAVIS 2016...')
-# gdown.download('https://drive.google.com/uc?id=198aRlh5CpAoFz0hfRgYbiNenn_K8DxWD', output='../DAVIS/DAVIS-data.zip', quiet=False)
 
-# print('Downloading DAVIS 2017 trainval...')
-# gdown.download('https://drive.google.com/uc?id=1kiaxrX_4GuW6NmiVuKGSGVoKGWjOdp6d', output='../DAVIS/2017/DAVIS-2017-trainval-480p.zip', quiet=False)
+"""
+DAVIS dataset
+"""
+# Google drive mirror: https://drive.google.com/drive/folders/1hEczGHw7qcMScbCJukZsoOW4Q9byx16A?usp=sharing
+os.makedirs('../DAVIS/2017', exist_ok=True)
 
-# print('Downloading DAVIS 2017 testdev...')
-# gdown.download('https://drive.google.com/uc?id=1fmkxU2v9cQwyb62Tj1xFDdh2p4kDsUzD', output='../DAVIS/2017/DAVIS-2017-test-dev-480p.zip', quiet=False)
+print('Downloading DAVIS 2016...')
+gdown.download('https://drive.google.com/uc?id=198aRlh5CpAoFz0hfRgYbiNenn_K8DxWD', output='../DAVIS/DAVIS-data.zip', quiet=False)
 
-# print('Downloading DAVIS 2017 scribbles...')
-# gdown.download('https://drive.google.com/uc?id=1JzIQSu36h7dVM8q0VoE4oZJwBXvrZlkl', output='../DAVIS/2017/DAVIS-2017-scribbles-trainval.zip', quiet=False)
+print('Downloading DAVIS 2017 trainval...')
+gdown.download('https://drive.google.com/uc?id=1kiaxrX_4GuW6NmiVuKGSGVoKGWjOdp6d', output='../DAVIS/2017/DAVIS-2017-trainval-480p.zip', quiet=False)
 
-# print('Extracting DAVIS datasets...')
-# with zipfile.ZipFile('../DAVIS/DAVIS-data.zip', 'r') as zip_file:
-#     zip_file.extractall('../DAVIS/')
-# os.rename('../DAVIS/DAVIS', '../DAVIS/2016')
+print('Downloading DAVIS 2017 testdev...')
+gdown.download('https://drive.google.com/uc?id=1fmkxU2v9cQwyb62Tj1xFDdh2p4kDsUzD', output='../DAVIS/2017/DAVIS-2017-test-dev-480p.zip', quiet=False)
 
-# with zipfile.ZipFile('../DAVIS/2017/DAVIS-2017-trainval-480p.zip', 'r') as zip_file:
-#     zip_file.extractall('../DAVIS/2017/')
-# with zipfile.ZipFile('../DAVIS/2017/DAVIS-2017-scribbles-trainval.zip', 'r') as zip_file:
-#     zip_file.extractall('../DAVIS/2017/')
-# os.rename('../DAVIS/2017/DAVIS', '../DAVIS/2017/trainval')
+print('Downloading DAVIS 2017 scribbles...')
+gdown.download('https://drive.google.com/uc?id=1JzIQSu36h7dVM8q0VoE4oZJwBXvrZlkl', output='../DAVIS/2017/DAVIS-2017-scribbles-trainval.zip', quiet=False)
 
-# with zipfile.ZipFile('../DAVIS/2017/DAVIS-2017-test-dev-480p.zip', 'r') as zip_file:
-#     zip_file.extractall('../DAVIS/2017/')
-# os.rename('../DAVIS/2017/DAVIS', '../DAVIS/2017/test-dev')
+print('Extracting DAVIS datasets...')
+with zipfile.ZipFile('../DAVIS/DAVIS-data.zip', 'r') as zip_file:
+    zip_file.extractall('../DAVIS/')
+os.rename('../DAVIS/DAVIS', '../DAVIS/2016')
 
-# print('Cleaning up DAVIS datasets...')
-# os.remove('../DAVIS/2017/DAVIS-2017-trainval-480p.zip')
-# os.remove('../DAVIS/2017/DAVIS-2017-test-dev-480p.zip')
-# os.remove('../DAVIS/2017/DAVIS-2017-scribbles-trainval.zip')
-# os.remove('../DAVIS/DAVIS-data.zip')
+with zipfile.ZipFile('../DAVIS/2017/DAVIS-2017-trainval-480p.zip', 'r') as zip_file:
+    zip_file.extractall('../DAVIS/2017/')
+with zipfile.ZipFile('../DAVIS/2017/DAVIS-2017-scribbles-trainval.zip', 'r') as zip_file:
+    zip_file.extractall('../DAVIS/2017/')
+os.rename('../DAVIS/2017/DAVIS', '../DAVIS/2017/trainval')
+
+with zipfile.ZipFile('../DAVIS/2017/DAVIS-2017-test-dev-480p.zip', 'r') as zip_file:
+    zip_file.extractall('../DAVIS/2017/')
+os.rename('../DAVIS/2017/DAVIS', '../DAVIS/2017/test-dev')
+
+print('Cleaning up DAVIS datasets...')
+os.remove('../DAVIS/2017/DAVIS-2017-trainval-480p.zip')
+os.remove('../DAVIS/2017/DAVIS-2017-test-dev-480p.zip')
+os.remove('../DAVIS/2017/DAVIS-2017-scribbles-trainval.zip')
+os.remove('../DAVIS/DAVIS-data.zip')
 
 
 # """

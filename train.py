@@ -66,6 +66,8 @@ for si, stage in enumerate(stages_to_perform):
     config['batch_size'] //= config['num_gpus']
     config['num_workers'] //= config['num_gpus']
     print(f'We are assuming {config["num_gpus"]} GPUs.')
+    config['batch_size'] = config['batch_size']/2
+    print('Present Batch Size - {}'.format(config['batch_size']))
 
     print(f'We are now starting stage {stage}')
 

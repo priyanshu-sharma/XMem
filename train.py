@@ -18,7 +18,7 @@ from util.configuration import Configuration
 from util.load_subset import load_sub_davis, load_sub_yv
 
 import wandb
-wandb.init(project='XMem Training', id='XTraining Stage - 0 Updates')
+wandb.init(project='XMem Training', id='XTraining Stage - 2 Updates')
 
 """
 Initial setup

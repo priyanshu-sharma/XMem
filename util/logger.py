@@ -8,7 +8,7 @@ import warnings
 import torchvision.transforms as transforms
 from torch.utils.tensorboard import SummaryWriter
 import wandb
-wandb.init(project='XMem Training', id='XTraining Stage - 0 Updates')
+wandb.init(project='XMem Training', id='XTraining Stage - 2 Updates')
 
 
 def tensor_to_numpy(image):

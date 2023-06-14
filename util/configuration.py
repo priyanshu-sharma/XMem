@@ -33,7 +33,7 @@ class Configuration():
         """
         # Stage 0, static images
         parser.add_argument('--s0_batch_size', default=16, type=int)
-        parser.add_argument('--s0_iterations', default=150000, type=int)
+        parser.add_argument('--s0_iterations', default=20000, type=int)
         parser.add_argument('--s0_finetune', default=0, type=int)
         parser.add_argument('--s0_steps', nargs="*", default=[], type=int)
         parser.add_argument('--s0_lr', help='Initial learning rate', default=1e-5, type=float)
@@ -56,10 +56,10 @@ class Configuration():
 
         # Stage 2, DAVIS+YoutubeVOS, longer
         parser.add_argument('--s2_batch_size', default=8, type=int)
-        parser.add_argument('--s2_iterations', default=150000, type=int)
+        parser.add_argument('--s2_iterations', default=20000, type=int)
         # fine-tune means fewer augmentations to train the sensory memory
         parser.add_argument('--s2_finetune', default=10000, type=int)
-        parser.add_argument('--s2_steps', nargs="*", default=[120000], type=int)
+        parser.add_argument('--s2_steps', nargs="*", default=[], type=int)
         parser.add_argument('--s2_lr', help='Initial learning rate', default=1e-5, type=float)
         parser.add_argument('--s2_num_ref_frames', default=3, type=int)
         parser.add_argument('--s2_num_frames', default=8, type=int)
@@ -68,10 +68,10 @@ class Configuration():
 
         # Stage 3, DAVIS+YoutubeVOS, shorter
         parser.add_argument('--s3_batch_size', default=8, type=int)
-        parser.add_argument('--s3_iterations', default=100000, type=int)
+        parser.add_argument('--s3_iterations', default=20000, type=int)
         # fine-tune means fewer augmentations to train the sensory memory
         parser.add_argument('--s3_finetune', default=10000, type=int)
-        parser.add_argument('--s3_steps', nargs="*", default=[80000], type=int)
+        parser.add_argument('--s3_steps', nargs="*", default=[], type=int)
         parser.add_argument('--s3_lr', help='Initial learning rate', default=1e-5, type=float)
         parser.add_argument('--s3_num_ref_frames', default=3, type=int)
         parser.add_argument('--s3_num_frames', default=8, type=int)

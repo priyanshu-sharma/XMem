@@ -39,8 +39,8 @@ class Configuration():
         parser.add_argument('--s0_lr', help='Initial learning rate', default=1e-5, type=float)
         parser.add_argument('--s0_num_ref_frames', default=2, type=int)
         parser.add_argument('--s0_num_frames', default=3, type=int)
-        parser.add_argument('--s0_start_warm', default=20000, type=int)
-        parser.add_argument('--s0_end_warm', default=70000, type=int)
+        parser.add_argument('--s0_start_warm', default=200, type=int)
+        parser.add_argument('--s0_end_warm', default=700, type=int)
 
         # Stage 1, BL30K
         parser.add_argument('--s1_batch_size', default=8, type=int)
@@ -63,8 +63,8 @@ class Configuration():
         parser.add_argument('--s2_lr', help='Initial learning rate', default=1e-5, type=float)
         parser.add_argument('--s2_num_ref_frames', default=3, type=int)
         parser.add_argument('--s2_num_frames', default=8, type=int)
-        parser.add_argument('--s2_start_warm', default=20000, type=int)
-        parser.add_argument('--s2_end_warm', default=70000, type=int)
+        parser.add_argument('--s2_start_warm', default=200, type=int)
+        parser.add_argument('--s2_end_warm', default=700, type=int)
 
         # Stage 3, DAVIS+YoutubeVOS, shorter
         parser.add_argument('--s3_batch_size', default=8, type=int)
@@ -75,8 +75,8 @@ class Configuration():
         parser.add_argument('--s3_lr', help='Initial learning rate', default=1e-5, type=float)
         parser.add_argument('--s3_num_ref_frames', default=3, type=int)
         parser.add_argument('--s3_num_frames', default=8, type=int)
-        parser.add_argument('--s3_start_warm', default=20000, type=int)
-        parser.add_argument('--s3_end_warm', default=70000, type=int)
+        parser.add_argument('--s3_start_warm', default=200, type=int)
+        parser.add_argument('--s3_end_warm', default=700, type=int)
 
         parser.add_argument('--gamma', help='LR := LR*gamma at every decay step', default=0.1, type=float)
         parser.add_argument('--weight_decay', default=0.05, type=float)

@@ -8,7 +8,7 @@ import warnings
 import torchvision.transforms as transforms
 from torch.utils.tensorboard import SummaryWriter
 import wandb
-wandb.init(project='XMem Training', id='Training Stage - 0 testing')
+wandb.init(project='XMem Training', id='XTraining Stage - 0')
 
 
 def tensor_to_numpy(image):
@@ -57,7 +57,6 @@ class TensorboardLogger:
         text = '{:s} - It {:6d} [{:5s}] [{:13}]: {:s}'.format(self.short_id, step, l1_tag.upper(), l2_tag, fix_width_trunc(val))
         wandb.log({l2_tag: val})
         print(text)
-        print("Result - {}\n".format(text))
         if f is not None:
             f.write(text + '\n')
             f.flush()

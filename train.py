@@ -17,6 +17,8 @@ from util.logger import TensorboardLogger
 from util.configuration import Configuration
 from util.load_subset import load_sub_davis, load_sub_yv
 
+import wandb
+wandb.init(project='XMem Training', id='XTraining Stage - 2 Updates')
 
 """
 Initial setup
@@ -64,6 +66,8 @@ for si, stage in enumerate(stages_to_perform):
     if config['batch_size']//config['num_gpus']*config['num_gpus'] != config['batch_size']:
         raise ValueError('Batch size must be divisible by the number of GPUs.')
     config['batch_size'] //= config['num_gpus']
+    config['batch_size'] = int(config['batch_size'] / 2)
+    print("Final Batch Size - {}".format(config['batch_size']))
     config['num_workers'] //= config['num_gpus']
     print(f'We are assuming {config["num_gpus"]} GPUs.')
 

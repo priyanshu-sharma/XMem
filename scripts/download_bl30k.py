@@ -39,12 +39,12 @@ names = [
 
 for i, link in enumerate(links):
     print('Downloading segment %d/%d ...' % (i, len(links)))
-    gdown.download(link, output='../%s' % names[i], quiet=False)
+    gdown.download(link, output='../data_domain/training/%s' % names[i], quiet=False)
     print('Extracting...')
-    with tarfile.open('../%s' % names[i], 'r') as tar_file:
-        tar_file.extractall('../%s' % names[i])
+    with tarfile.open('../data_domain/training/%s' % names[i], 'r') as tar_file:
+        tar_file.extractall('../data_domain/training/%s' % names[i])
     print('Cleaning up...')
-    os.remove('../%s' % names[i])
+    os.remove('../data_domain/training/%s' % names[i])
 
 
 print('Done.')

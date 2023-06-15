@@ -16,6 +16,9 @@ from inference.inference_core import InferenceCore
 
 from progressbar import progressbar
 
+import wandb
+wandb.init(project='XMem Evaluation')
+
 try:
     import hickle as hkl
 except ImportError:
@@ -29,11 +32,11 @@ parser = ArgumentParser()
 parser.add_argument('--model', default='./saves/XMem.pth')
 
 # Data options
-parser.add_argument('--d16_path', default='../DAVIS/2016')
-parser.add_argument('--d17_path', default='../DAVIS/2017')
-parser.add_argument('--y18_path', default='../YouTube2018')
-parser.add_argument('--y19_path', default='../YouTube')
-parser.add_argument('--lv_path', default='../long_video_set')
+parser.add_argument('--d16_path', default='../data_domain/training/DAVIS/2016')
+parser.add_argument('--d17_path', default='../data_domain/training/DAVIS/2017')
+parser.add_argument('--y18_path', default='../data_domain/training/YouTube2018')
+parser.add_argument('--y19_path', default='../data_domain/training/YouTube')
+parser.add_argument('--lv_path', default='../data_domain/training/long_video_set')
 # For generic (G) evaluation, point to a folder that contains "JPEGImages" and "Annotations"
 parser.add_argument('--generic_path')
 

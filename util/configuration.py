@@ -13,10 +13,10 @@ class Configuration():
         parser.add_argument('--no_amp', action='store_true')
 
         # Data parameters
-        parser.add_argument('--static_root', help='Static training data root', default='../static')
-        parser.add_argument('--bl_root', help='Blender training data root', default='../BL30K')
-        parser.add_argument('--yv_root', help='YouTubeVOS data root', default='../YouTube')
-        parser.add_argument('--davis_root', help='DAVIS data root', default='../DAVIS')
+        parser.add_argument('--static_root', help='Static training data root', default='../data_domain/training/static')
+        parser.add_argument('--bl_root', help='Blender training data root', default='../data_domain/training/BL30K')
+        parser.add_argument('--yv_root', help='YouTubeVOS data root', default='../data_domain/training/YouTube')
+        parser.add_argument('--davis_root', help='DAVIS data root', default='../data_domain/training/DAVIS')
         parser.add_argument('--num_workers', help='Total number of dataloader workers across all GPUs processes', type=int, default=16)
 
         parser.add_argument('--key_dim', default=64, type=int)
@@ -33,14 +33,14 @@ class Configuration():
         """
         # Stage 0, static images
         parser.add_argument('--s0_batch_size', default=16, type=int)
-        parser.add_argument('--s0_iterations', default=150000, type=int)
+        parser.add_argument('--s0_iterations', default=20000, type=int)
         parser.add_argument('--s0_finetune', default=0, type=int)
         parser.add_argument('--s0_steps', nargs="*", default=[], type=int)
         parser.add_argument('--s0_lr', help='Initial learning rate', default=1e-5, type=float)
         parser.add_argument('--s0_num_ref_frames', default=2, type=int)
         parser.add_argument('--s0_num_frames', default=3, type=int)
-        parser.add_argument('--s0_start_warm', default=20000, type=int)
-        parser.add_argument('--s0_end_warm', default=70000, type=int)
+        parser.add_argument('--s0_start_warm', default=200, type=int)
+        parser.add_argument('--s0_end_warm', default=700, type=int)
 
         # Stage 1, BL30K
         parser.add_argument('--s1_batch_size', default=8, type=int)
@@ -56,27 +56,27 @@ class Configuration():
 
         # Stage 2, DAVIS+YoutubeVOS, longer
         parser.add_argument('--s2_batch_size', default=8, type=int)
-        parser.add_argument('--s2_iterations', default=150000, type=int)
+        parser.add_argument('--s2_iterations', default=2000, type=int)
         # fine-tune means fewer augmentations to train the sensory memory
-        parser.add_argument('--s2_finetune', default=10000, type=int)
-        parser.add_argument('--s2_steps', nargs="*", default=[120000], type=int)
+        parser.add_argument('--s2_finetune', default=1000, type=int)
+        parser.add_argument('--s2_steps', nargs="*", default=[], type=int)
         parser.add_argument('--s2_lr', help='Initial learning rate', default=1e-5, type=float)
         parser.add_argument('--s2_num_ref_frames', default=3, type=int)
         parser.add_argument('--s2_num_frames', default=8, type=int)
-        parser.add_argument('--s2_start_warm', default=20000, type=int)
-        parser.add_argument('--s2_end_warm', default=70000, type=int)
+        parser.add_argument('--s2_start_warm', default=200, type=int)
+        parser.add_argument('--s2_end_warm', default=700, type=int)
 
         # Stage 3, DAVIS+YoutubeVOS, shorter
         parser.add_argument('--s3_batch_size', default=8, type=int)
-        parser.add_argument('--s3_iterations', default=100000, type=int)
+        parser.add_argument('--s3_iterations', default=2000, type=int)
         # fine-tune means fewer augmentations to train the sensory memory
-        parser.add_argument('--s3_finetune', default=10000, type=int)
-        parser.add_argument('--s3_steps', nargs="*", default=[80000], type=int)
+        parser.add_argument('--s3_finetune', default=1000, type=int)
+        parser.add_argument('--s3_steps', nargs="*", default=[], type=int)
         parser.add_argument('--s3_lr', help='Initial learning rate', default=1e-5, type=float)
         parser.add_argument('--s3_num_ref_frames', default=3, type=int)
         parser.add_argument('--s3_num_frames', default=8, type=int)
-        parser.add_argument('--s3_start_warm', default=20000, type=int)
-        parser.add_argument('--s3_end_warm', default=70000, type=int)
+        parser.add_argument('--s3_start_warm', default=200, type=int)
+        parser.add_argument('--s3_end_warm', default=700, type=int)
 
         parser.add_argument('--gamma', help='LR := LR*gamma at every decay step', default=0.1, type=float)
         parser.add_argument('--weight_decay', default=0.05, type=float)
@@ -88,8 +88,8 @@ class Configuration():
         # Logging information
         parser.add_argument('--log_text_interval', default=100, type=int)
         parser.add_argument('--log_image_interval', default=1000, type=int)
-        parser.add_argument('--save_network_interval', default=25000, type=int)
-        parser.add_argument('--save_checkpoint_interval', default=50000, type=int)
+        parser.add_argument('--save_network_interval', default=250, type=int)
+        parser.add_argument('--save_checkpoint_interval', default=500, type=int)
         parser.add_argument('--exp_id', help='Experiment UNIQUE id, use NULL to disable logging to tensorboard', default='NULL')
         parser.add_argument('--debug', help='Debug mode which logs information more often', action='store_true')
 

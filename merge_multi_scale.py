@@ -15,6 +15,8 @@ from util import palette
 from util.palette import davis_palette, youtube_palette
 import shutil
 
+import wandb
+wandb.init(project='XMem Evaluation')
 
 def search_options(options, name):
     for option in options:
